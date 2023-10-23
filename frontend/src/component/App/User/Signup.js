@@ -42,6 +42,7 @@ const Signup = () => {
             const data = { nAme, eMail, pAssword }
             axios.post("/api/users/signup", data).then(res => {
                 console.log(res.data);
+                alert(res.data);
                 setLredirect(true);
                 window.location.pathname = "login";
             })

@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./component/Header/Header";
 import Footer from "./component/Footer/Footer";
-import Test1 from "./component/App/test1";
-import Test2 from "./component/App/test2";
+import Signup from "./component/App/User/Signup";
+import Login from "./component/App/User/Login";
 
 const ARoute = () => {
 
@@ -10,8 +10,8 @@ const ARoute = () => {
         <>
             <Header />
             <Routes >
-                <Route path="/test1" element={<Test1 />} />
-                <Route path="/test2" element={<Test2 />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
 
         </>

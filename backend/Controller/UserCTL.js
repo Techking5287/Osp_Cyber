@@ -1,9 +1,10 @@
-const User = require("../model/User");
+const User = require("../Model/UserMDL");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const moment = require("moment")
 
 const Signup = async (req, res) => {
+    console.log(req.body);
     const hashedPassword = bcrypt.hashSync(req.body.pAssword);
     try {
         const user = await User.findOne({ email: req.body.eMail });
@@ -27,7 +28,7 @@ const Signup = async (req, res) => {
 
 const Signin = async (req, res) => {
     try {
-        const user;
+        let user;
         if (req.body.eMail) {
             user = await User.findOne({ Email: req.body.eMail });
             if (user) {

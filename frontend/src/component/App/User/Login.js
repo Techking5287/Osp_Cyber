@@ -1,5 +1,37 @@
 
+import { useState } from "react";
+import axios from "axios"
+import { Link } from "react-router-dom";
+
+
 const Login = () => {
+
+    const [eMail, setEmail] = useState("");
+    const [pAssword, setPassword] = useState("");
+
+    const HandleChange = (param1, param2) => {
+        if (param1 == "email")
+            setEmail(param2)
+        else if (param1 == "password")
+            setPassword(param2)
+    }
+    const Signin = () => {
+        if (!eMail) {
+            alert("Invaild your eMail")
+        }
+        else if (!pAssword) {
+            alert("Invaild dont match")
+        }
+        else if (eMail && pAssword) {
+            const data = { eMail, pAssword }
+            axios.post("/api/users/signin", data).then(res => {
+                console.log(res.data);
+            })
+        }
+        else {
+            alert("Failure!")
+        }
+    }
     return (
         <div className='grid grid-cols-1 sm:grid-cols-1 h-screen w-full'>
             <div className='bg-gray-800 flex flex-col justify-center cursor-pointer'>
@@ -14,8 +46,9 @@ const Login = () => {
                         <input className='p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none' type="password" placeholder="  Enter your password" />
                     </div>
                     <div className='flex justify-between text-gray-400 py-2'>
-                        <p className='flex items-center'><input className='mr-2' type="checkbox" /> Remember Me</p>
-                        <p className="cursor-pointer">Forgot Password</p>
+                        <p className='flex items-center underline'><input className='mr-2' type="checkbox" /> Remember Me</p>
+                        <p className="cursor-pointer underline">Forgot Password</p>
+                        <Link to="/signup" className="cursor-pointer underline">Create account</Link>
                     </div>
                     <button className='w-full my-5 py-2 bg-teal-500 shadow-lg shadow-teal-500/50 hover:shadow-teal-500/40 text-white font-semibold rounded-lg'>SIGNIN</button>
                 </div>

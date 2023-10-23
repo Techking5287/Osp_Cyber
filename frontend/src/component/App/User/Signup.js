@@ -1,11 +1,12 @@
 
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
 import { useState } from "react";
 import axios from "axios"
 
 const Signup = () => {
+    const [lRedirect, setLredirect] = useState(false);
     const [nAme, setName] = useState("");
     const [eMail, setEmail] = useState("");
     const [pAssword, setPassword] = useState("");
@@ -22,26 +23,36 @@ const Signup = () => {
         // console.log(param1, param2);
     }
     const Signup = () => {
-
         if (!nAme) {
             alert("Invaild your full name")
         }
         else if (!eMail) {
             alert("Invaild your eMail")
         }
-        else if (!pAssword && cPassword) {
+        else if (!pAssword) {
+            alert("Invaild password")
+        }
+        else if (!cPassword) {
+            alert("Invaild confirm password")
+        }
+        else if (pAssword !== cPassword) {
             alert("Password dont match")
         }
         else if (nAme && eMail && pAssword && cPassword && pAssword === cPassword) {
             const data = { nAme, eMail, pAssword }
             axios.post("/api/users/signup", data).then(res => {
                 console.log(res.data);
+                setLredirect(true);
+                window.location.pathname = "login";
             })
         }
         else {
             alert("Failure!")
         }
     }
+    // if (lRedirect) {
+    //     return <Link to="/login" />;
+    // }
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-1 h-screen w-full'>
@@ -58,7 +69,7 @@ const Signup = () => {
                     </div>
                     <div className='flex flex-col text-gray-400 py-2'>
                         <label className="cursor-pointer">Password</label>
-                        <input className='p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none' onChange={(event) => HandleChange('passowrd', event.target.value)} type="password" placeholder="  Enter your password" />
+                        <input className='p-2 rounded-lg bg-gray-700 mt-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none' onChange={(event) => HandleChange('password', event.target.value)} type="password" placeholder="  Enter your password" />
                     </div>
                     <div className='flex flex-col text-gray-400 py-2'>
                         <label className="cursor-pointer">Confirm Password</label>

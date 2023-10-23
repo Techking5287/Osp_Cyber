@@ -14,14 +14,40 @@ const Signup = async (req, res) => {
             console.log(req.body)
             const newuser = new User({
                 Name: req.body.nAme,
-                lastname: req.body.lName,
                 Email: req.body.eMail,
                 password: hashedPassword,
             });
             newuser.save();
-            res.status(200).send(`User ${newuser.email} registered successfully!`);
+            res.status(200).send(`User ${newuser.Email} registered successfully!`);
         }
     } catch (error) {
         console.log(error);
     }
 };
+
+const Signin = async (req, res) => {
+    try {
+        const user;
+        if (req.body.eMail) {
+            user = await User.findOne({ Email: req.body.eMail });
+            if (user) {
+                const passwordMatch = await bcrypt.compare(req.body.pAss, user.password);
+                if (passwordMatch) {
+                    res.status(200).send(`User ${user.Email} registered successfully!`);
+                }
+                else
+                    return res.send("Password Dont Matched");
+            }
+            else if (!user) {
+                return res.json("Email not found");
+            }
+        }
+    }
+    catch (err) {
+
+    }
+
+}
+module.exports = {
+    Signup, Signin
+}

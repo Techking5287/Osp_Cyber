@@ -4,8 +4,11 @@ import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
 import { useState } from "react";
 import axios from "axios"
+import { Button, message, Space } from "antd";
+
 
 const Signup = () => {
+    const [messageApi, contextHolder] = message.useMessage();
     const [lRedirect, setLredirect] = useState(false);
     const [nAme, setName] = useState("");
     const [eMail, setEmail] = useState("");
@@ -24,25 +27,28 @@ const Signup = () => {
     }
     const Signup = () => {
         if (!nAme) {
-            alert("Invaild your full name")
+            message.warning("Invaild your full name")
         }
         else if (!eMail) {
-            alert("Invaild your eMail")
+            message.warning("Invaild your eMail")
         }
         else if (!pAssword) {
-            alert("Invaild password")
+            message.warning("Invaild password")
         }
         else if (!cPassword) {
-            alert("Invaild confirm password")
+            message.warning("Invaild confirm password")
         }
         else if (pAssword !== cPassword) {
-            alert("Password dont match")
+            message.warning("Password dont match")
         }
         else if (nAme && eMail && pAssword && cPassword && pAssword === cPassword) {
             const data = { nAme, eMail, pAssword }
             axios.post("/api/users/signup", data).then(res => {
                 console.log(res.data);
-                alert(res.data);
+                message.config({
+                    top: "60px"
+                })
+                message.success(res.data);
                 setLredirect(true);
                 window.location.pathname = "login";
             })
@@ -51,9 +57,6 @@ const Signup = () => {
             alert("Failure!")
         }
     }
-    // if (lRedirect) {
-    //     return <Link to="/login" />;
-    // }
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-1 h-screen w-full'>

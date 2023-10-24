@@ -2,13 +2,14 @@
 import { useState } from "react";
 import axios from "axios"
 import { Link } from "react-router-dom";
+import { Button, message, Space } from "antd";
 
 
 const Login = () => {
 
+    const [messageApi, contextHolder] = message.useMessage();
     const [eMail, setEmail] = useState("");
     const [pAssword, setPassword] = useState("");
-
     const HandleChange = (param1, param2) => {
         if (param1 == "email")
             setEmail(param2)
@@ -17,15 +18,24 @@ const Login = () => {
     }
     const Signin = () => {
         if (!eMail) {
-            alert("Invaild your eMail")
+            message.warning("Invaild your email")
         }
         else if (!pAssword) {
-            alert("Invaild dont match")
+            message.warning("Invaild your password")
         }
         else if (eMail && pAssword) {
             const data = { eMail, pAssword }
-            axios.post("/api/users/signin", data).then(res => {
-                alert(res.data);
+            axios.post("/api/users/sign_in", data).then(res => {
+                if (res.data.success) {
+                    message.config({
+                        top: "60px",
+                        duration: 2
+                    })
+                    message.success(res.data.success);
+                }
+                else {
+                    message.error(res.data)
+                }
             })
         }
         else {

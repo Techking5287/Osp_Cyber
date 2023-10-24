@@ -1,24 +1,47 @@
 import React, { Component, useState, useEffect } from "react";
+import { Button, message, Space } from "antd";
 import "./Pincode.css";
 
 const Pincode = () => {
     const [value, setValue] = useState("");
+    const [fLag, setFlag] = useState(true);
+    const [cOunter, setCounter] = useState(0);
     const [passCode, setPassCode] = useState("----");
     const pressButton = (number) => {
-        let newValue = value + number;
-        let newPassCode = getPassCodeFromValue(newValue);
-        setValue(newValue);
-        setPassCode(newPassCode);
+        if (cOunter === 3) {
+            message.config({
+                top: "60px",
+                duration: 2
+            })
+            message.success("Please wait for 5s");
+            setFlag(false);
+            setTimeout(timeSetCounter, 5000);
+        }
+        else {
+            let newValue = value + number;
+            let newPassCode = getPassCodeFromValue(newValue);
+            setValue(newValue);
+            setPassCode(newPassCode);
+            if (newValue.length === 4) {
+                setCounter(cOunter + 1);
+                if (newValue === "1204")
+                    message.success("Success")
+                performValidation(newValue);
+                console.log("14: newValue :::", newValue)
+                clear();
+                console.log("ww", cOunter)
 
-        if (newValue.length === 4) {
-            if (newValue === "1204")
-                alert("Success")
-            performValidation(newValue);
-            console.log("14: newValue :::", newValue)
-            console.log("15=>>>>>>>>>>>>>>>>>>\n", performValidation(newValue));
-            clear();
+            }
         }
     };
+
+    const timeSetCounter = () => {
+        console.log("ssss")
+        setFlag(true);
+        setCounter(0);
+        // setTimeout(console.log("ww,34"), 30000);
+    };
+
     const getPassCodeFromValue = (val) => {
         let res = "";
         for (let i = 0; i < val.length; i++) {
@@ -85,7 +108,7 @@ const Pincode = () => {
                 <div className="pin-pad-top">
                     {/* <div>Sifreyi Giriniz</div> */}
                     <div className="pin-pad-circle-container text-center">
-                        {passCode}
+                        {fLag ? passCode : ""}
                     </div>
                 </div>
                 <div className="pin-pad-middle">
@@ -182,7 +205,6 @@ const Pincode = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="pin-pad-bottom">Iptal</div> */}
             </div>
         </div>
     );

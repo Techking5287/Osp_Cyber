@@ -8,6 +8,7 @@ import { Button, message, Space } from "antd";
 
 
 const Signup = () => {
+    const [messageApi, contextHolder] = message.useMessage();
     const [lRedirect, setLredirect] = useState(false);
     const [nAme, setName] = useState("");
     const [eMail, setEmail] = useState("");
@@ -56,9 +57,6 @@ const Signup = () => {
             alert("Failure!")
         }
     }
-    // if (lRedirect) {
-    //     return <Link to="/login" />;
-    // }
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-1 h-screen w-full'>

@@ -1,19 +1,27 @@
-import React, { Component, useState, useEffect } from "react";
-import { Button, message, Space } from "antd";
+import React, { Component, useState, useRef, useEffect } from "react";
+import { Button, message, Space, Modal } from "antd";
 import "./Pincode.css";
+import { useDownloadFile } from "react-downloadfile-hook";
 
 const Pincode = () => {
+    const videoRef = useRef();
+    const [messageApi, contextHolder] = message.useMessage();
+    const key = 'updatable';
     const [value, setValue] = useState("");
     const [fLag, setFlag] = useState(true);
     const [cOunter, setCounter] = useState(0);
     const [passCode, setPassCode] = useState("----");
+    const [modal2Open, setModal2Open] = useState(false);
+
+
     const pressButton = (number) => {
         if (cOunter === 3) {
             message.config({
                 top: "60px",
+                width: '700',
                 duration: 2
             })
-            message.success("Please wait for 5s");
+            message.warning("Please wait for 5s");
             setFlag(false);
             setTimeout(timeSetCounter, 5000);
         }
@@ -23,9 +31,15 @@ const Pincode = () => {
             setValue(newValue);
             setPassCode(newPassCode);
             if (newValue.length === 4) {
-                setCounter(cOunter + 1);
-                if (newValue === "1204")
+                if (newValue === "1204") {
+                    setCounter(0);
                     message.success("Success")
+                    setModal2Open(true);
+                }
+                else {
+                    setCounter(cOunter + 1);
+                    message.warning("Failure, Invaild your Pincode");
+                }
                 performValidation(newValue);
                 console.log("14: newValue :::", newValue)
                 clear();
@@ -36,10 +50,8 @@ const Pincode = () => {
     };
 
     const timeSetCounter = () => {
-        console.log("ssss")
         setFlag(true);
         setCounter(0);
-        // setTimeout(console.log("ww,34"), 30000);
     };
 
     const getPassCodeFromValue = (val) => {
@@ -103,110 +115,144 @@ const Pincode = () => {
         };
     }, []);
     return (
-        <div className="pin-pad-main-container">
-            <div className="pin-pad-container">
-                <div className="pin-pad-top">
-                    {/* <div>Sifreyi Giriniz</div> */}
-                    <div className="pin-pad-circle-container text-center">
-                        {fLag ? passCode : ""}
+        <>
+            <div className="pin-pad-main-container">
+                {/* <h1 className="float-right">www</h1> */}
+                {/* <video className=""
+                    id="downloaded-video"
+                    controls
+                    style={{}}
+                >
+                    <source
+                        src="https://www.w3schools.com/html/mov_bbb.mp4"
+                        type="video/mp4"
+                    />
+                </video> */}
+                <div className="pin-pad-container">
+                    <div className="pin-pad-top">
+                        {/* <div>Sifreyi Giriniz</div> */}
+                        <div className="pin-pad-circle-container text-center">
+                            {fLag ? passCode : ""}
+                        </div>
                     </div>
-                </div>
-                <div className="pin-pad-middle">
-                    <div class="pin-pad-number-container">
-                        <div className="pin-pad-number-row">
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("1");
-                                }}
-                            >
-                                1
+                    <div className="pin-pad-middle">
+                        <div className="pin-pad-number-container">
+                            <div className="pin-pad-number-row">
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("1");
+                                    }}
+                                >
+                                    1
+                                </div>
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("2");
+                                    }}
+                                >
+                                    2
+                                </div>
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("3");
+                                    }}
+                                >
+                                    3
+                                </div>
                             </div>
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("2");
-                                }}
-                            >
-                                2
+                            <div className="pin-pad-number-row">
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("4");
+                                    }}
+                                >
+                                    4
+                                </div>
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("5");
+                                    }}
+                                >
+                                    5
+                                </div>
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("6");
+                                    }}
+                                >
+                                    6
+                                </div>
                             </div>
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("3");
-                                }}
-                            >
-                                3
+                            <div className="pin-pad-number-row">
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("7");
+                                    }}
+                                >
+                                    7
+                                </div>
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("8");
+                                    }}
+                                >
+                                    8
+                                </div>
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("9");
+                                    }}
+                                >
+                                    9
+                                </div>
                             </div>
-                        </div>
-                        <div className="pin-pad-number-row">
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("4");
-                                }}
-                            >
-                                4
+                            <div className="pin-pad-number-row">
+                                <div className="pin-pad-number-cell pin-pad-hide"></div>
+                                <div
+                                    className="pin-pad-number-cell"
+                                    onClick={() => {
+                                        pressButton("0");
+                                    }}
+                                >
+                                    0
+                                </div>
+                                <div className="pin-pad-number-cell pin-pad-hide"></div>
                             </div>
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("5");
-                                }}
-                            >
-                                5
-                            </div>
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("6");
-                                }}
-                            >
-                                6
-                            </div>
-                        </div>
-                        <div className="pin-pad-number-row">
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("7");
-                                }}
-                            >
-                                7
-                            </div>
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("8");
-                                }}
-                            >
-                                8
-                            </div>
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("9");
-                                }}
-                            >
-                                9
-                            </div>
-                        </div>
-                        <div className="pin-pad-number-row">
-                            <div className="pin-pad-number-cell pin-pad-hide"></div>
-                            <div
-                                className="pin-pad-number-cell"
-                                onClick={() => {
-                                    pressButton("0");
-                                }}
-                            >
-                                0
-                            </div>
-                            <div className="pin-pad-number-cell pin-pad-hide"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <Modal
+                title="Video"
+                centered
+                okButtonProps={{ style: { backgroundColor: 'black' } }}
+                cancelButtonProps={{ style: { backgroundColor: 'black', color: 'white', border: "none" } }}
+                open={modal2Open}
+                onOk={() => setModal2Open(false)}
+                onCancel={() => setModal2Open(false)}
+            >
+                <video className="text-center"
+                    autoPlay
+                    id="downloaded-video"
+                    controls
+                >
+                    <source
+                        src="https://www.w3schools.com/html/mov_bbb.mp4"
+                        type="video/mp4" 
+                    />
+                </video>
+            </Modal>
+        </>
+
     );
 }
 export default Pincode;

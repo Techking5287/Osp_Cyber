@@ -2,8 +2,6 @@
 import React, { useRef, useState } from "react";
 import { useDownloadFile } from "react-downloadfile-hook";
 import { Button, Modal, Input, Space, message } from 'antd';
-import Down from "./Down";
-
 
 const Videodown = () => {
     const videoRef = useRef();

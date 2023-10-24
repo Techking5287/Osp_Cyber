@@ -11,7 +11,7 @@ const Pincode = () => {
     const [fLag, setFlag] = useState(true);
     const [cOunter, setCounter] = useState(0);
     const [passCode, setPassCode] = useState("----");
-    const [modal2Open, setModal2Open] = useState(false);
+    const [vIdeoflag, setVideoflag] = useState(false);
 
 
     const pressButton = (number) => {
@@ -34,7 +34,7 @@ const Pincode = () => {
                 if (newValue === "1204") {
                     setCounter(0);
                     message.success("Success")
-                    setModal2Open(true);
+                    setVideoflag(true);
                 }
                 else {
                     setCounter(cOunter + 1);
@@ -236,9 +236,9 @@ const Pincode = () => {
                 centered
                 okButtonProps={{ style: { backgroundColor: 'black' } }}
                 cancelButtonProps={{ style: { backgroundColor: 'black', color: 'white', border: "none" } }}
-                open={modal2Open}
-                onOk={() => setModal2Open(false)}
-                onCancel={() => setModal2Open(false)}
+                open={vIdeoflag}
+                onOk={() => setVideoflag(false)}
+                onCancel={() => setVideoflag(false)}
             >
                 <video className="text-center"
                     autoPlay
@@ -247,7 +247,7 @@ const Pincode = () => {
                 >
                     <source
                         src="https://www.w3schools.com/html/mov_bbb.mp4"
-                        type="video/mp4" 
+                        type="video/mp4"
                     />
                 </video>
             </Modal>

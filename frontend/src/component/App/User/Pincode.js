@@ -34,7 +34,7 @@ const Pincode = () => {
                 if (newValue === "1204") {
                     setCounter(0);
                     message.success("Success")
-                    setVideoflag(true);
+                    // setVideoflag(true);
                 }
                 else {
                     setCounter(cOunter + 1);
@@ -117,17 +117,6 @@ const Pincode = () => {
     return (
         <>
             <div className="pin-pad-main-container">
-                {/* <h1 className="float-right">www</h1> */}
-                {/* <video className=""
-                    id="downloaded-video"
-                    controls
-                    style={{}}
-                >
-                    <source
-                        src="https://www.w3schools.com/html/mov_bbb.mp4"
-                        type="video/mp4"
-                    />
-                </video> */}
                 <div className="pin-pad-container">
                     <div className="pin-pad-top">
                         {/* <div>Sifreyi Giriniz</div> */}

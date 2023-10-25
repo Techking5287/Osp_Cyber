@@ -56,7 +56,7 @@ const Videodown = () => {
                 onOk={ConfirmPassword}
                 onCancel={() => setVideoflag(false)}
             >
-                {pAssflag ? <video className="text-center"
+                {pAssflag ? <video className="text-center" autoPlay
                     ref={videoRef}
                     id="downloaded-video"
                     controls

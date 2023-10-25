@@ -4,6 +4,7 @@ import Footer from "./component/Footer/Footer";
 import Signup from "./component/App/User/Signup";
 import Login from "./component/App/User/Login";
 import Pincode from "./component/App/User/Pincode";
+import Email from "./component/App/Email";
 
 const ARoute = () => {
 
@@ -15,6 +16,7 @@ const ARoute = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/pincode" element={<Pincode />} />
+                <Route path="/email" element={<Email />} />
             </Routes>
             <Footer />
         </>

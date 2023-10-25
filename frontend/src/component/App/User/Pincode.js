@@ -34,7 +34,7 @@ const Pincode = () => {
                 if (newValue === "1204") {
                     setCounter(0);
                     message.success("Success")
-                    setVideoflag(true);
+                    // setVideoflag(true);
                 }
                 else {
                     setCounter(cOunter + 1);

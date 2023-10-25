@@ -33,7 +33,8 @@ const Pincode = () => {
             if (newValue.length === 4) {
                 if (newValue === "1204") {
                     setCounter(0);
-                    message.success("Success")
+                    message.success("Success");
+                    window.location.pathname = "b3";
                     // setVideoflag(true);
                 }
                 else {

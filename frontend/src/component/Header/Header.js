@@ -21,9 +21,13 @@ const Header = () => {
                         <Link to="/pincode" className="p-2 lg:px-4 md:mx-2 text-white text-center border border-solid border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">
                             Pincode
                         </Link>
+                        <Link to="/passcode" className="p-2 lg:px-4 md:mx-2 text-white text-center border border-solid border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">
+                            PassCode
+                        </Link>
                         <Link to="/email" className="p-2 lg:px-4 md:mx-2 text-white text-center border border-solid border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">
                             Email
                         </Link>
+
                     </div>
                     <Videodown />
                 </div>

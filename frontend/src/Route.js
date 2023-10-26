@@ -9,7 +9,7 @@ import PassCode from "./component/App/PassCode";
 import Explore from "./component/App/Option/Explore"
 import ORusb from "./component/App/Option/ORusb"
 import B3 from "./component/App/Option/B3";
-import Down from "./component/App/User/Down";
+import Down from "./component/App/Down";
 import QRCode from "./component/App/QRCode";
 
 

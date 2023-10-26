@@ -51,7 +51,6 @@ const PassCode = () => {
                         <Input.Password placeholder="Enter third letter" onChange={(event) => HandleChange('3', event.target.value)} />
                     </Space>
                     <Button type="primary" onClick={Confirm}>Confirm</Button>
-
                 </div>
                 <Modal
                     title="Video"

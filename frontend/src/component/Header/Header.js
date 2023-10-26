@@ -31,6 +31,9 @@ const Header = () => {
                         <Link to="/down" className="p-2 lg:px-4 md:mx-2 text-white text-center border border-solid border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">
                             Down
                         </Link>
+                        <Link to="/qrcode" className="p-2 lg:px-4 md:mx-2 text-white text-center border border-solid border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">
+                            QR Code
+                        </Link>
                     </div>
                     {/* <Videodown /> */}
                 </div>

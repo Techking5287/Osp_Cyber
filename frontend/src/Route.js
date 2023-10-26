@@ -10,6 +10,8 @@ import Explore from "./component/App/Option/Explore"
 import ORusb from "./component/App/Option/ORusb"
 import B3 from "./component/App/Option/B3";
 import Down from "./component/App/User/Down";
+import QRCode from "./component/App/QRCode";
+
 
 const ARoute = () => {
 
@@ -27,6 +29,8 @@ const ARoute = () => {
                 <Route path="/openrunusb" element={<ORusb />} />
                 <Route path="/explore" element={<Explore />} />
                 <Route path="/down" element={<Down />} />
+                <Route path="/qrcode" element={<QRCode />} />
+
             </Routes>
             <Footer />
         </>

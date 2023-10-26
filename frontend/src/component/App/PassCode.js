@@ -68,7 +68,7 @@ const PassCode = () => {
                         controls
                     >
                         <source
-                            src="https://www.w3schools.com/html/mov_bbb.mp4"
+                            src="http://95.217.36.51/Intro.mp4"
                             type="video/mp4"
                         />
                     </video>

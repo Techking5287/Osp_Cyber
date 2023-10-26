@@ -32,6 +32,7 @@ const Login = () => {
                         duration: 2
                     })
                     message.success(res.data.success);
+                    window.location.pathname = "pincode";
                 }
                 else {
                     message.error(res.data)

@@ -9,7 +9,7 @@ import PassCode from "./component/App/PassCode";
 import Explore from "./component/App/Option/Explore"
 import ORusb from "./component/App/Option/ORusb"
 import B3 from "./component/App/Option/B3";
-
+import Down from "./component/App/User/Down";
 
 const ARoute = () => {
 
@@ -26,6 +26,7 @@ const ARoute = () => {
                 <Route path="/b3" element={<B3 />} />
                 <Route path="/openrunusb" element={<ORusb />} />
                 <Route path="/explore" element={<Explore />} />
+                <Route path="/down" element={<Down />} />
             </Routes>
             <Footer />
         </>

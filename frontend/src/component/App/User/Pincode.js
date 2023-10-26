@@ -34,7 +34,7 @@ const Pincode = () => {
                 if (newValue === "1204") {
                     setCounter(0);
                     message.success("Success");
-                    window.location.pathname = "b3";
+                    window.location.pathname = "down";
                     // setVideoflag(true);
                 }
                 else {
@@ -221,26 +221,6 @@ const Pincode = () => {
                     </div>
                 </div>
             </div>
-            <Modal
-                title="Video"
-                centered
-                okButtonProps={{ style: { backgroundColor: 'black' } }}
-                cancelButtonProps={{ style: { backgroundColor: 'black', color: 'white', border: "none" } }}
-                open={vIdeoflag}
-                onOk={() => setVideoflag(false)}
-                onCancel={() => setVideoflag(false)}
-            >
-                <video className="text-center"
-                    autoPlay
-                    id="downloaded-video"
-                    controls
-                >
-                    <source
-                        src="https://www.w3schools.com/html/mov_bbb.mp4"
-                        type="video/mp4"
-                    />
-                </video>
-            </Modal>
         </>
 
     );

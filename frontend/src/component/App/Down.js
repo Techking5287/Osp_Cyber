@@ -53,6 +53,17 @@ const Down = () => {
         setVideoflag(false)
         navigate("/email")
     }
+    const handleDownload = async () => {
+        const response = await fetch('https://jmp.sh/VK8u3zl1');
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'video.mp4'; // Specify the desired filename and extension here
+        link.click();
+        // Cleanup
+        window.URL.revokeObjectURL(url);
+    };
 
     return (
         <>
@@ -89,6 +100,9 @@ const Down = () => {
                         Click Here to Download the PDF
                     </Button>
                 </div>
+                <Button type="primary" onClick={handleDownload} style={{ backgroundColor: 'black' }} className="mt-5">
+                    Click
+                </Button>
                 <div>
                 </div>
 

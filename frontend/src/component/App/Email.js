@@ -16,19 +16,23 @@ const Email = () => {
         }
         else if (param === "report") {
             message.success("Thanks for reporting this message.\nYou’ll find what you need if you examine the dark web")
-            window.location.pathname = "/passcode";
+            setTimeout(function () {
+                window.location.pathname = "/passcode";
+            }, 1000);
         }
     }
     const ConfirmPassword = () => {
         if (rEply === "Blackhat") {
             message.config({
-                top: "60px"
+                top: "60px",
+                duration: 1
             })
             message.success("Thanks for the safe word.\nYou’ll find what you need if you examine the dark web ");
-            window.location.pathname = "/passcode";
+            setTimeout(function () {
+                window.location.pathname = "/passcode";
+            }, 1000);
         }
         else {
-
             message.warning("Invaild password")
         }
     }
@@ -37,9 +41,11 @@ const Email = () => {
     return (
         <>
             {/* <NotificationContainer /> */}
-            <div className="p-5 h-[100vh] ">
-                <div className=' w-[670px] h-[] mx-auto rounded' style={{ border: "2px solid #4472c4" }}>
-                    <div className=" pin-pad-container bg-[#f2f2f2]">
+            <div className="p-5 h-[85vh] bg-[length:100%_85vh] bg-no-repeat " style={{ backgroundImage: "url('./email.png')" }}>
+                <div className=' w-[670px] h-[] mx-auto rounded' style={{ border: "2px solid #4472c4", marginTop: '400px' }}>
+                    {/* <img src="/gmail_back.png" /> */}
+                    {/* <img src="./email.png" /> */}
+                    <div className=" pin-pad-container bg-[#f2f2f2]" >
                         <div className='w-5/6'>
                             <h1 className=' font-bold mb-3'>Subject : Looking for the three word passcode?</h1>
                             <h1 className=' font-bold flex'>From : &nbsp;

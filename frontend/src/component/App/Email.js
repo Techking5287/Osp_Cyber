@@ -4,7 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 // import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 
+
 const Email = () => {
+    const navigate = useNavigate();
     const [rEply, setReply] = useState("");
     const [rEplyflag, setReplyflag] = useState(false);
     const HandleChange = (event) => {
@@ -17,7 +19,7 @@ const Email = () => {
         else if (param === "report") {
             message.success("Thanks for reporting this message.\nYou’ll find what you need if you examine the dark web")
             setTimeout(function () {
-                window.location.pathname = "/passcode";
+                navigate("/passcode");
             }, 1000);
         }
     }
@@ -29,26 +31,24 @@ const Email = () => {
             })
             message.success("Thanks for the safe word.\nYou’ll find what you need if you examine the dark web ");
             setTimeout(function () {
-                window.location.pathname = "/passcode";
+                navigate("/passcode");
             }, 1000);
         }
         else {
             message.warning("Invaild password")
         }
     }
-
-
     return (
         <>
             {/* <NotificationContainer /> */}
-            <div className="p-5 h-[85vh] bg-[length:100%_85vh] bg-no-repeat " style={{ backgroundImage: "url('./email.png')" }}>
-                <div className=' w-[670px] h-[] mx-auto rounded' style={{ border: "2px solid #4472c4", marginTop: '400px' }}>
+            <div className="p-5 h-[85vh] bg-[length:100%_85vh] bg-no-repeat " style={{ backgroundColor: 'white' }}>
+                <div className=' w-[670px] h-[] mx-auto rounded ' style={{ border: "2px solid #4472c4", marginTop: '200px' }}>
                     {/* <img src="/gmail_back.png" /> */}
                     {/* <img src="./email.png" /> */}
-                    <div className=" pin-pad-container bg-[#f2f2f2]" >
+                    <div className=" pin-pad-container bg-[#f2f2f2] " >
                         <div className='w-5/6'>
-                            <h1 className=' font-bold mb-3'>Subject : Looking for the three word passcode?</h1>
-                            <h1 className=' font-bold flex'>From : &nbsp;
+                            <h4 className=' font-bold flex text-black'>Subject : Looking for the three word passcode?</h4>
+                            <h4 className=' font-bold flex text-black'>From : &nbsp;
                                 <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" height="25px" width="20px" version="1.1" id="Layer_1" viewBox="0 0 512.009 512.009" space="preserve">
                                     <circle style={{ fill: "#F7B239" }} cx="256.004" cy="256.004" r="256.004" />
                                     <g>
@@ -61,26 +61,25 @@ const Email = () => {
                                         <path style={{ fill: "#4D4D4D" }} d="M369.326,160.87c-19.358,0-35.107,15.749-35.107,35.107s15.749,35.107,35.107,35.107   s35.107-15.749,35.107-35.107S388.684,160.87,369.326,160.87z" />
                                     </g>
                                 </svg>&nbsp;
-                                Cyber Security Team</h1>
+                                Cyber Security Team</h4>
                         </div>
                         <div className='flex container justify-end gap-4 -mt-11'>
                             <Button className=' bg-[#4472c4]' type="primary" onClick={() => LinkB3('reply')}>Reply</Button>
                             <Button className=' bg-[#4472c4]' type="primary" onClick={() => LinkB3('report')}>Report Phishing</Button>
                         </div>
                     </div>
-                    <p className='p-4'>
-                        <h1 className='mb-5'>Hello</h1>
-                        <h1 className='mb-10'>
+                    <p className='p-4 text-black'>
+                        <h4 className='mb-5 text-left'>
+                            Hello
+                        </h4>
+                        <h4 className='mb-10'>
                             If you want to find the three word passcode and save the data, reply to the message with your three word passcode
-                        </h1>
-                        <h1>
+                        </h4>
+                        <h4 className='text-left'>
                             Thanks
-                        </h1>
-
+                        </h4>
                     </p>
                 </div>
-
-
                 <Modal
                     title="Enter password"
                     centered

@@ -1,11 +1,12 @@
 
 import { useState } from "react";
 import axios from "axios"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, message, Space } from "antd";
 
 
 const Login = () => {
+    const navigate = useNavigate();
 
     const [messageApi, contextHolder] = message.useMessage();
     const [eMail, setEmail] = useState("");
@@ -32,7 +33,7 @@ const Login = () => {
                         duration: 2
                     })
                     message.success(res.data.success);
-                    window.location.pathname = "pincode";
+                    navigate("/pincode");
                 }
                 else {
                     message.error(res.data)

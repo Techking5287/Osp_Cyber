@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Timer from './Timer';
 
 const Down = () => {
+    const navigate = useNavigate();
     const videoRef = useRef();
     const [pAss, setPass] = useState('')
     const [vIdeoflag, setVideoflag] = useState(false);
@@ -22,9 +23,9 @@ const Down = () => {
     };
 
     const { linkProps } = useDownloadFile({
-        fileName: "Introduce.mp4",
+        fileName: "Intro1.mp4",
         format: "video/mp4",
-        data: "http://95.217.36.51/Intro1.mp4",
+        data: "http://95.217.36.51/dashboard/Intro1.mp4",
     });
 
     const HandleChange = (param) => {
@@ -38,7 +39,7 @@ const Down = () => {
             document.getElementById("down").click();
             setPassflag(true);
             setCpassflag(true)
-            onDownload();
+            // onDownload();
         }
         else {
             message.config({
@@ -48,9 +49,14 @@ const Down = () => {
         }
 
     }
+    const MoveEmail = () => {
+        setVideoflag(false)
+        navigate("/email")
+    }
+
     return (
         <>
-            {timerflag ? <Timer /> : ''}
+            <Timer />
             <div className="pin-pad-main-container text-black" style={{ backgroundColor: 'white' }}>
                 <Modal
                     title="Enter password"
@@ -59,21 +65,21 @@ const Down = () => {
                     cancelButtonProps={{ style: { backgroundColor: 'black', color: 'white', border: "none" } }}
                     open={vIdeoflag}
                     onOk={ConfirmPassword}
-                    onCancel={() => setVideoflag(false)}
+                    onCancel={MoveEmail}
                 >
-                    {pAssflag ? <video className="text-center" autoPlay
-                        ref={videoRef}
+                    {pAssflag ? <video className="text-center"
+                        ref={videoRef} autoPlay
                         id="downloaded-video"
                         controls
                     >
                         <source
-                            src="http://95.217.36.51/Intro1.mp4"
+                            src="http://95.217.36.51/dashboard/Intro1.mp4"
                             type="video/mp4"
                         />
                     </video> : <Space direction="vertical ">
                         <Input.Password placeholder="input password" onChange={(event) => HandleChange(event.target.value)} />
                     </Space>}
-                    <Button id="down" hidden {...linkProps} onClick={onDownload}>down</Button>
+                    <Button id="down" hidden {...linkProps} >down</Button>
                 </Modal >
                 <div className='text-center text-black'>
                     <p className=' text-3xl mb-3'>CONGRATULATIONS!</p>

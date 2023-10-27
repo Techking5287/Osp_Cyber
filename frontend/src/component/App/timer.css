@@ -36,10 +36,11 @@ body {
 	/* background-color: var(--color-primary); */
 }
 
-h1 {
+.timer {
 	font-size: var(--font-size-xl);
-	color: var(--color-shades);
+	/* color: var(--color-shades); */
 }
+
 /* 
 .card {
 	background: rgba(245, 245, 245, 1.0);

@@ -2,11 +2,12 @@ import { Button, Modal, Input, Space, message } from 'antd';
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 // import { NotificationContainer, NotificationManager } from 'react-notifications';
-
+import Timer from './Timer';
 
 
 const Email = () => {
     const navigate = useNavigate();
+    const [pAssflag, setPassflag] = useState(false);
     const [rEply, setReply] = useState("");
     const [rEplyflag, setReplyflag] = useState(false);
     const HandleChange = (event) => {
@@ -15,6 +16,7 @@ const Email = () => {
     const LinkB3 = (param) => {
         if (param === "reply") {
             setReplyflag(true)
+            setPassflag(true);
         }
         else if (param === "report") {
             message.success("Thanks for reporting this message.\nYou’ll find what you need if you examine the dark web")
@@ -41,6 +43,7 @@ const Email = () => {
     return (
         <>
             {/* <NotificationContainer /> */}
+            {pAssflag ? <Timer /> : ''}
             <div className="p-5 h-[85vh] bg-[length:100%_85vh] bg-no-repeat " style={{ backgroundColor: 'white' }}>
                 <div className=' w-[670px] h-[] mx-auto rounded ' style={{ border: "2px solid #4472c4", marginTop: '200px' }}>
                     {/* <img src="/gmail_back.png" /> */}
@@ -72,7 +75,7 @@ const Email = () => {
                         <h4 className='mb-5 text-left'>
                             Hello
                         </h4>
-                        <h4 className='mb-10'>
+                        <h4 className='mb-5 text-left'>
                             If you want to find the three word passcode and save the data, reply to the message with your three word passcode
                         </h4>
                         <h4 className='text-left'>

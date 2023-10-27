@@ -3,11 +3,13 @@ import { useState } from "react";
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom";
 import { Button, message, Space } from "antd";
+import { useSelector, useDispatch } from 'react-redux'
+import { InputGameoverauth, InputMinute, InputSeconds } from "../../../reducers/InputSlice";
 
 
 const Login = () => {
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     const [messageApi, contextHolder] = message.useMessage();
     const [eMail, setEmail] = useState("");
     const [pAssword, setPassword] = useState("");
@@ -32,6 +34,12 @@ const Login = () => {
                         top: "60px",
                         duration: 2
                     })
+                    localStorage.setItem('minutes', 0)
+                    localStorage.setItem('seconds', 7)
+                    localStorage.setItem('user', true)
+                    console.log("l: ", localStorage.getItem('seconds'), localStorage.getItem('minutes'))
+                    dispatch(InputMinute(localStorage.getItem("minutes")))
+                    dispatch(InputSeconds(localStorage.getItem("seconds")))
                     message.success(res.data.success);
                     navigate("/pincode");
                 }

@@ -43,7 +43,7 @@ const Email = () => {
     return (
         <>
             {/* <NotificationContainer /> */}
-            {pAssflag ? <Timer /> : ''}
+           <Timer />
             <div className="p-5 h-[85vh] bg-[length:100%_85vh] bg-no-repeat " style={{ backgroundColor: 'white' }}>
                 <div className=' w-[670px] h-[] mx-auto rounded ' style={{ border: "2px solid #4472c4", marginTop: '200px' }}>
                     {/* <img src="/gmail_back.png" /> */}

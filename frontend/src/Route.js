@@ -16,11 +16,11 @@ import Risk from "./component/App/Risk";
 import { useSelector, useDispatch } from 'react-redux'
 
 const ARoute = () => {
-    const { gameover } = useSelector((state) => state.InputValue);
+    const { Gameover } = useSelector((state) => state.InputValue);
 
     return (
         <>
-            {gameover ? <>
+            {Gameover ? <>
                 <Header />
                 <Routes >
                     <Route path="/" element={<Login />} />
@@ -41,6 +41,8 @@ const ARoute = () => {
             </> : <>
                 <Routes >
                     <Route path="/risk" element={<Risk />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/login" element={<Login />} />
                 </Routes>
                 <Footer />
             </>}

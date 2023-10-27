@@ -36,6 +36,7 @@ const PassCode = () => {
             <Timer />
             <div className="pin-pad-main-container">
                 <div className="pin-pad-container grid-cols-4">
+                    <h3>Enter your three word passcode to save the data</h3>
                     <Space className='mb-5' direction="vertical">
                         <Input.Password placeholder="Enter password" onChange={(event) => HandleChange(event.target.value)} />
                     </Space>
@@ -56,7 +57,7 @@ const PassCode = () => {
                         controls
                     >
                         <source
-                            src="http://95.217.36.51/Intro2.mp4"
+                            src="http://95.217.36.51/dashboard/Intro2.mp4"
                             type="video/mp4"
                         />
                     </video>

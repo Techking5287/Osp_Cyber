@@ -11,28 +11,41 @@ import ORusb from "./component/App/Option/ORusb"
 import B3 from "./component/App/Option/B3";
 import Down from "./component/App/Down";
 import QRCode from "./component/App/QRCode";
-
+import Timer from "./component/App/Timer";
+import Risk from "./component/App/Risk";
+import { useSelector, useDispatch } from 'react-redux'
 
 const ARoute = () => {
+    const { gameover } = useSelector((state) => state.InputValue);
 
     return (
         <>
-            <Header />
-            <Routes >
-                <Route path="/" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/pincode" element={<Pincode />} />
-                <Route path="/email" element={<Email />} />
-                <Route path="/passcode" element={<PassCode />} />
-                <Route path="/b3" element={<B3 />} />
-                <Route path="/openrunusb" element={<ORusb />} />
-                <Route path="/explore" element={<Explore />} />
-                <Route path="/down" element={<Down />} />
-                <Route path="/qrcode" element={<QRCode />} />
+            {gameover ? <>
+                <Header />
+                <Routes >
+                    <Route path="/" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/pincode" element={<Pincode />} />
+                    <Route path="/email" element={<Email />} />
+                    <Route path="/passcode" element={<PassCode />} />
+                    <Route path="/b3" element={<B3 />} />
+                    <Route path="/openrunusb" element={<ORusb />} />
+                    <Route path="/explore" element={<Explore />} />
+                    <Route path="/down" element={<Down />} />
+                    <Route path="/qrcode" element={<QRCode />} />
+                    <Route path="/timer" element={<Timer />} />
+                    <Route path="/risk" element={<Risk />} />
+                </Routes>
+                <Footer />
+            </> : <>
+                <Routes >
+                    <Route path="/risk" element={<Risk />} />
+                </Routes>
+                <Footer />
+            </>}
 
-            </Routes>
-            <Footer />
+
         </>
     )
 }

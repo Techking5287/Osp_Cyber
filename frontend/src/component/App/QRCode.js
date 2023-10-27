@@ -1,13 +1,15 @@
 import { Button, message, Space, Modal } from "antd";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import Timer from "./Timer";
 
 const QRCode = () => {
+    const navigate = useNavigate();
     const LinkEmail = () => {
-        window.location.pathname = "email";
+        navigate("/email");
     }
     return (
         <>
+            <Timer />
             <div className="pin-pad-main-container ">
                 <div className="pin-pad-container" style={{ width: '320px' }}>
                     {/* <div className=" bg-slate-100 text-center "> */}

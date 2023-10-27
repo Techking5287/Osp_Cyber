@@ -2,8 +2,11 @@ import React, { Component, useState, useRef, useEffect } from "react";
 import { Button, message, Space, Modal } from "antd";
 import "./Pincode.css";
 import { useDownloadFile } from "react-downloadfile-hook";
+import Timer from "../Timer";
+import { useNavigate } from 'react-router-dom';
 
 const Pincode = () => {
+    const navigate = useNavigate();
     const videoRef = useRef();
     const [messageApi, contextHolder] = message.useMessage();
     const key = 'updatable';
@@ -34,7 +37,7 @@ const Pincode = () => {
                 if (newValue === "1204") {
                     setCounter(0);
                     message.success("Success");
-                    window.location.pathname = "down";
+                    navigate("/down");
                     // setVideoflag(true);
                 }
                 else {
@@ -117,6 +120,7 @@ const Pincode = () => {
     }, []);
     return (
         <>
+            <Timer />
             <div className="pin-pad-main-container">
                 <div className="pin-pad-container">
                     <div className="pin-pad-top">

@@ -1,5 +1,5 @@
 
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/logo/logo.svg';
 import { useState } from "react";
@@ -8,6 +8,7 @@ import { Button, message, Space } from "antd";
 
 
 const Signup = () => {
+    const navigate = useNavigate();
     const [messageApi, contextHolder] = message.useMessage();
     const [lRedirect, setLredirect] = useState(false);
     const [nAme, setName] = useState("");
@@ -50,7 +51,7 @@ const Signup = () => {
                 })
                 message.success(res.data);
                 setLredirect(true);
-                window.location.pathname = "login";
+                navigate("/login");
             })
         }
         else {

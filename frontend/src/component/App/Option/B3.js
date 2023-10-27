@@ -2,7 +2,6 @@ import { Button, Modal, Input, Space, message } from 'antd';
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 
-
 const B3 = () => {
 
     const navigate = useNavigate();

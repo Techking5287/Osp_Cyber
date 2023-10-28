@@ -26,7 +26,7 @@ const Timer = () => {
                     dispatch(InputSeconds(localStorage.getItem("seconds")));
                     // console.log("s: ", localStorage.getItem("seconds"));
                     // console.log(" Minute : ", Minute, Seconds)
-                    if (Minute == 0 && Seconds == 5) {
+                    if (localStorage.getItem("minutes") == 0 && Seconds == 5) {
                         // console.log("wwa : ", Seconds)
                         message.config({
                             top: "60px"
@@ -60,6 +60,8 @@ const Timer = () => {
         }
     }, [Minute, Seconds, isStopped, dispatch, navigate])
     useEffect(() => {
+        dispatch(InputMinute(localStorage.getItem("minutes")));
+        dispatch(InputSeconds(localStorage.getItem("seconds")));
         if (localStorage.getItem("minutes") == 0 && localStorage.getItem("seconds") == 0) {
             dispatch(InputGameoverauth(false));
             navigate('/risk');

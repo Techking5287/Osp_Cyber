@@ -40,6 +40,7 @@ const ARoute = () => {
                 <Footer />
             </> : <>
                 <Routes >
+                    <Route path="/" element={<Login />} />
                     <Route path="/risk" element={<Risk />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />

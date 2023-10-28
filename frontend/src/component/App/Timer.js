@@ -22,9 +22,7 @@ const Timer = () => {
                 if (localStorage.getItem("seconds") > 0) {
                     // localStorage.getItem("seconds") = localStorage.getItem("seconds") - 1
                     let seconds = parseInt(localStorage.getItem("seconds"));
-                    console.log("w: ", seconds);
                     localStorage.setItem("seconds", (seconds - 1).toString());
-
                     dispatch(InputSeconds(localStorage.getItem("seconds")));
                     // console.log("s: ", localStorage.getItem("seconds"));
                     // console.log(" Minute : ", Minute, Seconds)
@@ -47,7 +45,6 @@ const Timer = () => {
                         // setMinutes(minutes - 1)
                         localStorage.setItem("seconds", 59);
                         dispatch(InputSeconds(localStorage.getItem("seconds")));
-                        console.log(" Minute : ", Minute, Seconds)
                     }
                 }
 

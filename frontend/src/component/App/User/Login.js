@@ -10,6 +10,7 @@ import { InputGameoverauth, InputMinute, InputSeconds } from "../../../reducers/
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
     const [messageApi, contextHolder] = message.useMessage();
     const [eMail, setEmail] = useState("");
     const [pAssword, setPassword] = useState("");
@@ -34,8 +35,8 @@ const Login = () => {
                         top: "60px",
                         duration: 2
                     })
-                    localStorage.setItem('minutes', 0)
-                    localStorage.setItem('seconds', 7)
+                    localStorage.setItem('minutes', 30)
+                    localStorage.setItem('seconds', 0)
                     localStorage.setItem('user', true)
                     console.log("l: ", localStorage.getItem('seconds'), localStorage.getItem('minutes'))
                     dispatch(InputMinute(localStorage.getItem("minutes")))

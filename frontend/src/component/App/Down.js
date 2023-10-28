@@ -1,12 +1,12 @@
 import { Button, Modal, Input, Space, message } from 'antd';
-import React, { useRef, useState } from "react";
-import { useDownloadFile } from "react-downloadfile-hook";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Timer from './Timer';
+import axios from 'axios';
 
 const Down = () => {
     const navigate = useNavigate();
-    const videoRef = useRef();
+    const videoRef = useRef(null);
     const [pAss, setPass] = useState('')
     const [vIdeoflag, setVideoflag] = useState(false);
     const [timerflag, setTimerflag] = useState(false);
@@ -21,25 +21,15 @@ const Down = () => {
             videoRef.current.play();
         }
     };
-
-    const { linkProps } = useDownloadFile({
-        fileName: "Intro1.mp4",
-        format: "video/mp4",
-        data: "http://95.217.36.51/dashboard/Intro1.mp4",
-    });
-
     const HandleChange = (param) => {
-        console.log(param);
         setPass(param)
     }
     const ConfirmPassword = async () => {
-        // alert("w")
         if (pAss === "Lanzarote23") {
             message.success("Success")
             document.getElementById("down").click();
             setPassflag(true);
             setCpassflag(true)
-            // onDownload();
         }
         else {
             message.config({
@@ -53,7 +43,16 @@ const Down = () => {
         setVideoflag(false)
         navigate("/email")
     }
-
+    // useEffect(() => {
+    //     const video = videoRef.current;
+    //     video.addEventListener("ended", handleVideoEnded);
+    //     return () => {
+    //         video.removeEventListener("ended", handleVideoEnded);
+    //     };
+    // }, [])
+    // const handleVideoEnded = () => {
+    //     navigate("/email")
+    // };
     return (
         <>
             <Timer />
@@ -79,7 +78,7 @@ const Down = () => {
                     </video> : <Space direction="vertical ">
                         <Input.Password placeholder="input password" onChange={(event) => HandleChange(event.target.value)} />
                     </Space>}
-                    <Button id="down" hidden {...linkProps} >down</Button>
+                    <a href='http://localhost:5000/download_intro1' id="down" hidden>down</a>
                 </Modal >
                 <div className='text-center text-black'>
                     <p className=' text-3xl mb-3'>CONGRATULATIONS!</p>

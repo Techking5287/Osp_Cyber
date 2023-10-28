@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const moment = require("moment")
 
+
 const Signup = async (req, res) => {
     // console.log(req.body);
     const hashedPassword = bcrypt.hashSync(req.body.pAssword);
@@ -54,6 +55,7 @@ const Signin = async (req, res) => {
     }
 
 }
+
 module.exports = {
     Signup, Signin
 }

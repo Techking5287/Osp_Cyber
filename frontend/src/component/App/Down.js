@@ -56,7 +56,6 @@ const Down = () => {
     }, [navigate]);
 
     const MoveEmail = () => {
-        setVideoflag(false);
         navigate("/email");
     }
 
@@ -71,7 +70,7 @@ const Down = () => {
                     cancelButtonProps={{ style: { backgroundColor: 'black', color: 'white', border: "none" } }}
                     open={vIdeoflag}
                     onOk={ConfirmPassword}
-                    onCancel={MoveEmail}
+                    onCancel={() => setVideoflag(false)}
                 >
                     {pAssflag ? (
                         <video className="text-center" autoPlay onEnded={MoveEmail} ref={videoRef} id="downloaded-video" controls>
@@ -93,7 +92,7 @@ const Down = () => {
                         Click Here to Download the PDF
                     </Button>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

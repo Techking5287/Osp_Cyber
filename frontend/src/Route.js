@@ -14,9 +14,6 @@ import Down from "./component/App/Down";
 import QRCode from "./component/App/QRCode";
 import Timer from "./component/App/Timer";
 import Risk from "./component/App/Risk";
-import Testdown from "./component/App/Testdown";
-
-
 
 const ARoute = () => {
     const { Gameover } = useSelector((state) => state.InputValue);
@@ -39,8 +36,6 @@ const ARoute = () => {
                     <Route path="/qrcode" element={<QRCode />} />
                     <Route path="/timer" element={<Timer />} />
                     <Route path="/risk" element={<Risk />} />
-                    <Route path="/testdown" element={<Testdown />} />
-
                 </Routes>
                 <Footer />
             </> : <>

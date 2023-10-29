@@ -28,16 +28,16 @@ const Signup = () => {
     }
     const Signup = () => {
         if (!nAme) {
-            message.warning("Invaild your full name")
+            message.warning("Invalid your full name")
         }
         else if (!eMail) {
-            message.warning("Invaild your eMail")
+            message.warning("Invalid your eMail")
         }
         else if (!pAssword) {
-            message.warning("Invaild password")
+            message.warning("Invalid password")
         }
         else if (!cPassword) {
-            message.warning("Invaild confirm password")
+            message.warning("Invalid confirm password")
         }
         else if (pAssword !== cPassword) {
             message.warning("Password dont match")

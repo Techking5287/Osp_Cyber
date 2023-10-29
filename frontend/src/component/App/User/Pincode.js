@@ -42,7 +42,7 @@ const Pincode = () => {
                 }
                 else {
                     setCounter(cOunter + 1);
-                    message.warning("Failure, Invaild your Pincode");
+                    message.warning("Failure, Invalid your Pincode");
                 }
                 performValidation(newValue);
                 console.log("14: newValue :::", newValue)
@@ -121,7 +121,7 @@ const Pincode = () => {
     return (
         <>
             <Timer />
-            <div className="pin-pad-main-container">
+            <div className="pin-pad-main-container h-[90vh]">
                 <div className="pin-pad-container">
                     <div className="pin-pad-top">
                         {/* <div>Sifreyi Giriniz</div> */}

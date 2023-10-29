@@ -62,7 +62,7 @@ const Down = () => {
     return (
         <>
             <Timer />
-            <div className="pin-pad-main-container text-black" style={{ backgroundColor: 'white' }}>
+            <div className="pin-pad-main-container h-[85vh] text-black" style={{ backgroundColor: 'white' }}>
                 <Modal
                     title="..."
                     centered

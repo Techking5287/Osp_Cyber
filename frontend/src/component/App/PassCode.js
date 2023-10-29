@@ -18,10 +18,10 @@ const PassCode = () => {
             message.config({
                 top: "60px"
             })
-            message.warning("Invaild password")
+            message.warning("Invalid password")
         }
 
-        else if (pAss === "ABC") {
+        else if (pAss === "DrainsDartsP0!ato") {
             message.success("Success")
             setVideoflag(true);
         }
@@ -34,7 +34,7 @@ const PassCode = () => {
     return (
         <>
             <Timer />
-            <div className="pin-pad-main-container">
+            <div className="pin-pad-main-container h-[90vh]">
                 <div className="pin-pad-container grid-cols-4">
                     <h3>Enter your three word passcode to save the data</h3>
                     <Space className='mb-5' direction="vertical">

@@ -48,8 +48,14 @@ const PassCode = () => {
                     okButtonProps={{ style: { backgroundColor: 'black' } }}
                     cancelButtonProps={{ style: { backgroundColor: 'black', color: 'white', border: "none" } }}
                     open={vIdeoflag}
-                    onOk={() => setVideoflag(false)}
-                    onCancel={() => setVideoflag(false)}
+                    onOk={() => {
+                        setVideoflag(false);
+                        document.getElementById('downloaded-video').pause();
+                    }}
+                    onCancel={() => {
+                        setVideoflag(false);
+                        document.getElementById('downloaded-video').pause();
+                    }}
                 >
                     <video className="text-center"
                         autoPlay

@@ -21,11 +21,11 @@ const Header = () => {
                             </div>
                         </div>
                         {localStorage.getItem('user') ? <div class="flex items-center">
-                            <button class="mobile-menu-button">
+                            {/* <button class="mobile-menu-button">
                                 <Link to="/email" className="p-2 lg:px-4 md:mx-2 text-white text-center border border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300" o >
                                     Email
                                 </Link>
-                            </button>
+                            </button> */}
                             <button class="mobile-menu-button">
                                 <Link className="p-2 lg:px-4 md:mx-2 text-white text-center border border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300" onClick={LogOut} >
                                     LogOut

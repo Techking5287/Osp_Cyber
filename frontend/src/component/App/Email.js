@@ -23,7 +23,7 @@ const Email = () => {
             message.success("Thanks for reporting this message.\nYou’ll find what you need if you examine the dark web")
             setTimeout(function () {
                 navigate("/passcode");
-            }, 1000);
+            }, 20000);
         }
     }
     const ConfirmPassword = () => {
@@ -35,7 +35,7 @@ const Email = () => {
             message.success("Thanks for the safe word.\nYou’ll find what you need if you examine the dark web ");
             setTimeout(function () {
                 navigate("/passcode");
-            }, 1000);
+            }, 20000);
         }
         else {
             message.warning("Invalid password")

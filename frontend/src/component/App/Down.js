@@ -6,7 +6,7 @@ import Timer from './Timer';
 const Down = () => {
     const navigate = useNavigate();
     const videoRef = useRef(null);
-    const [pAss, setPass] = useState('')
+    const [pAss, setPass] = useState('');
     const [vIdeoflag, setVideoflag] = useState(false);
     const [timerflag, setTimerflag] = useState(false);
     const [pAssflag, setPassflag] = useState(false);
@@ -20,27 +20,29 @@ const Down = () => {
     };
 
     const HandleChange = (param) => {
-        setPass(param)
-    }
+        setPass(param);
+    };
 
     const ConfirmPassword = async () => {
         if (pAssflag === true) {
-            setVideoflag(false)
-        }
-        else {
+            setVideoflag(false);
+            document.getElementById('downloaded-video').pause();
+            if (videoRef.current) {
+                videoRef.current.pause();
+            }
+        } else {
             if (pAss === "Lanzarote23") {
-                message.success("Success")
+                message.success("Success");
                 // document.getElementById("down").click();
                 setPassflag(true);
-            }
-            else if (pAss !== "Lanzarote23") {
+            } else {
                 message.config({
                     top: "60px"
-                })
-                message.warning("Password is not correct!")
+                });
+                message.warning("Password is not correct!");
             }
         }
-    }
+    };
 
     useEffect(() => {
         const handleVideoEnded = () => {
@@ -62,23 +64,26 @@ const Down = () => {
 
     const MoveEmail = () => {
         // navigate("/email");
-    }
+    };
 
     return (
-        <>
+        <div className="bg-[white]">
             <Timer />
-            <div className="pin-pad-main-container h-[85vh] text-black" style={{ backgroundColor: 'white' }}>
+            <div className="pin-pad-main-container h-[92vh] text-black" style={{ backgroundColor: "white" }}>
                 <Modal
                     title="..."
                     centered
-                    okButtonProps={{ style: { backgroundColor: 'black' } }}
-                    cancelButtonProps={{ style: { backgroundColor: 'black', color: 'white', border: "none" } }}
+                    okButtonProps={{ style: { backgroundColor: "black" } }}
+                    cancelButtonProps={{ style: { backgroundColor: "black", color: "white", border: "none" } }}
                     open={vIdeoflag}
                     onOk={ConfirmPassword}
-                    onCancel={() => setVideoflag(false)}
+                    onCancel={() => {
+                        setVideoflag(false);
+                        document.getElementById('downloaded-video').pause();
+                    }}
                 >
                     {pAssflag ? (
-                        <video className="text-center" autoPlay ref={videoRef} id="downloaded-video" controls>
+                        <video autoPlay className="text-center" id="downloaded-video" controls>
                             <source src="http://95.217.36.51/dashboard/Intro1.mp4" type="video/mp4" />
                         </video>
                     ) : (
@@ -89,7 +94,7 @@ const Down = () => {
                     {/* <a href='http://95.217.36.51:5000/download_intro1' id="down" hidden>down</a> */}
                 </Modal>
 
-                <div className='text-center text-black'>
+                <div className='text-center mt-48 text-black'>
                     <p className='text-3xl mb-3'>CONGRATULATIONS!</p>
                     <h4 className='mb-5'>You've cracked the code on the tablet.</h4>
                     <h4 className='mt-10'>To get more instructions, download the file</h4>
@@ -98,7 +103,7 @@ const Down = () => {
                     </Button>
                 </div>
             </div >
-        </>
+        </div>
     )
 }
 

@@ -29,13 +29,13 @@ const Login = () => {
         }
         else if (eMail && pAssword) {
             const data = { eMail, pAssword }
-            axios.post("/api/users/sign_in", data).then(res => {
+            axios.post("http://95.217.36.51:5000/api/users/sign_in", data).then(res => {
                 if (res.data.success) {
                     message.config({
                         top: "60px",
                         duration: 2
                     })
-                    localStorage.setItem('minutes', 30)
+                    localStorage.setItem('minutes', 35)
                     localStorage.setItem('seconds', 0)
                     localStorage.setItem('user', true)
                     console.log("l: ", localStorage.getItem('seconds'), localStorage.getItem('minutes'))
@@ -54,9 +54,9 @@ const Login = () => {
         }
     }
     return (
-        <div className='grid grid-cols-1 sm:grid-cols-1 h-screen w-full'>
+        <div className='grid grid-cols-1 sm:grid-cols-1 h-screen w-full '>
             <div className='bg-gray-800 flex flex-col justify-center cursor-pointer'>
-                <div className='max-w-[500px] w-full mx-auto rounded-lg bg-gray-900 p-8 px-8'>
+                <div className='max-w-[500px] -mt-20 w-full mx-auto rounded-lg bg-gray-900 p-8 px-8'>
                     <h2 className='text-4xl text-white font-bold text-center'>SIGN IN</h2>
                     <div className='flex flex-col text-gray-400 py-2'>
                         <label className=" text-start cursor-pointer">Email</label>

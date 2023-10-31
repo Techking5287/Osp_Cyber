@@ -22,6 +22,11 @@ const Header = () => {
                         </div>
                         {localStorage.getItem('user') ? <div class="flex items-center">
                             <button class="mobile-menu-button">
+                                <Link to="/email" className="p-2 lg:px-4 md:mx-2 text-white text-center border border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300" o >
+                                    Email
+                                </Link>
+                            </button>
+                            <button class="mobile-menu-button">
                                 <Link className="p-2 lg:px-4 md:mx-2 text-white text-center border border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300" onClick={LogOut} >
                                     LogOut
                                 </Link>
@@ -32,11 +37,11 @@ const Header = () => {
                                     Login
                                 </Link>
                             </button>
-                            <button class="mobile-menu-button">
+                            {/* <button class="mobile-menu-button">
                                 <Link to="/signup" className="p-2 lg:px-4 md:mx-2 text-white text-center border border-solid border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">
                                     Signup
                                 </Link>
-                            </button>
+                            </button> */}
                             {/* <Link to="/pincode" className="p-2 lg:px-4 md:mx-2 text-white text-center border border-solid border-transparent rounded hover:bg-sky-800 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">
                             Pincode
                         </Link>

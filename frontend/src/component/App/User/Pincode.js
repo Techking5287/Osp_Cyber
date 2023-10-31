@@ -42,7 +42,7 @@ const Pincode = () => {
                 }
                 else {
                     setCounter(cOunter + 1);
-                    message.warning("Failure, Invalid your Pincode");
+                    message.warning("Failure, Your passcode is invalid");
                 }
                 performValidation(newValue);
                 console.log("14: newValue :::", newValue)

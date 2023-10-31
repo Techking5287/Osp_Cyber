@@ -26,10 +26,10 @@ const Down = () => {
     const ConfirmPassword = async () => {
         if (pAss === "Lanzarote23") {
             message.success("Success")
-            document.getElementById("down").click();
+            // document.getElementById("down").click();
             setPassflag(true);
         }
-        else {
+        else if (pAss !== "Lanzarote23") {
             message.config({
                 top: "60px"
             })
@@ -39,7 +39,7 @@ const Down = () => {
 
     useEffect(() => {
         const handleVideoEnded = () => {
-            navigate("/email");
+            // navigate("/email");
         };
 
         const videoElement = videoRef.current;
@@ -56,7 +56,7 @@ const Down = () => {
     }, [navigate]);
 
     const MoveEmail = () => {
-        navigate("/email");
+        // navigate("/email");
     }
 
     return (
@@ -73,7 +73,7 @@ const Down = () => {
                     onCancel={() => setVideoflag(false)}
                 >
                     {pAssflag ? (
-                        <video className="text-center" autoPlay onEnded={MoveEmail} ref={videoRef} id="downloaded-video" controls>
+                        <video className="text-center" autoPlay ref={videoRef} id="downloaded-video" controls>
                             <source src="http://95.217.36.51/dashboard/Intro1.mp4" type="video/mp4" />
                         </video>
                     ) : (
@@ -81,7 +81,7 @@ const Down = () => {
                             <Input.Password placeholder="input password" onChange={(event) => HandleChange(event.target.value)} />
                         </Space>
                     )}
-                    <a href='http://localhost:5000/download_intro1' id="down" hidden>down</a>
+                    {/* <a href='http://95.217.36.51:5000/download_intro1' id="down" hidden>down</a> */}
                 </Modal>
 
                 <div className='text-center text-black'>

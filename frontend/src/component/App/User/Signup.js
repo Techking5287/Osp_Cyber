@@ -44,7 +44,7 @@ const Signup = () => {
         }
         else if (nAme && eMail && pAssword && cPassword && pAssword === cPassword) {
             const data = { nAme, eMail, pAssword }
-            axios.post("/api/users/signup", data).then(res => {
+            axios.post("http://95.217.36.51:5000/api/users/signup", data).then(res => {
                 console.log(res.data);
                 message.config({
                     top: "60px"

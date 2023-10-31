@@ -17,6 +17,7 @@ const Email = () => {
         if (param === "reply") {
             setReplyflag(true)
             setPassflag(true);
+            // message.warning("Enter your three word passcode here.")
         }
         else if (param === "report") {
             message.success("Thanks for reporting this message.\nYou’ll find what you need if you examine the dark web")
@@ -29,12 +30,12 @@ const Email = () => {
         if (rEply === "Blackhat") {
             message.config({
                 top: "60px",
-                duration: 1
+                duration: 0.5
             })
             message.success("Thanks for the safe word.\nYou’ll find what you need if you examine the dark web ");
-            setTimeout(function () {
-                navigate("/passcode");
-            }, 1000);
+        //     setTimeout(function () {
+        //         console.log("ss")
+        //     }, 1000);
         }
         else {
             message.warning("Invalid password")
@@ -44,8 +45,8 @@ const Email = () => {
         <>
             {/* <NotificationContainer /> */}
             <Timer />
-            <div className="py-5 xl:px-96 md:px-10 sm:px-0 lg:px-10 h-[85vh]" style={{ backgroundColor: 'white' }}>
-                <div className=' h-[] mx-auto rounded-xl text-center' style={{ border: "2px solid #4472c4", marginTop: '200px' }}>
+            <div className="py-5 xl:px-80  md:px-10 sm:px-0 lg:px-10 h-[85vh]" style={{ backgroundColor: 'white' }}>
+                <div className=' h-[]  rounded-xl text-center ' style={{ border: "2px solid #4472c4", marginTop: '200px' }}>
                     <div className='bg-[#f2f2f2] row rounded-xl mx-auto py-5 flex justify-between' style={{ border: "2px solid #4472c4" }}>
                         <div className='  w-11/12 lg:pl-10 sm:pl-4 pl-2'>
                             <h4 className='font-bold text-start mb-3 flex text-xs sm:text-xs lg:text-lg text-black'>Subject : Looking for the three word passcode?</h4>

@@ -32,11 +32,11 @@ const PassCode = () => {
     }
 
     return (
-        <>
+        <div className="bg-[#0c0c0c]">
             <Timer />
-            <div className="pin-pad-main-container h-[90vh]">
+            <div className="pin-pad-main-container  mt-60 h-[90vh]">
+                <h3 className='mb-9'>Enter your three word passcode to save the data</h3>
                 <div className="pin-pad-container grid-cols-4">
-                    <h3>Enter your three word passcode to save the data</h3>
                     <Space className='mb-5' direction="vertical">
                         <Input.Password placeholder="Enter password" onChange={(event) => HandleChange(event.target.value)} />
                     </Space>
@@ -63,7 +63,7 @@ const PassCode = () => {
                     </video>
                 </Modal>
             </div>
-        </>
+        </div>
     )
 }
 export default PassCode;

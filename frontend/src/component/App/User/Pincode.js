@@ -119,9 +119,9 @@ const Pincode = () => {
         };
     }, []);
     return (
-        <>
+        <div className="bg-[#0c0c0c]">
             <Timer />
-            <div className="pin-pad-main-container h-[90vh]">
+            <div className="pin-pad-main-container mt-44  h-[90vh]">
                 <div className="pin-pad-container">
                     <div className="pin-pad-top">
                         {/* <div>Sifreyi Giriniz</div> */}
@@ -225,7 +225,7 @@ const Pincode = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
 
     );
 }

@@ -1,5 +1,5 @@
 .pin-pad-main-container {
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;

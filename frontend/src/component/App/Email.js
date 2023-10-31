@@ -45,7 +45,7 @@ const Email = () => {
         <>
             {/* <NotificationContainer /> */}
             <Timer />
-            <div className="py-5 xl:px-80  md:px-10 sm:px-0 lg:px-10 h-[85vh]" style={{ backgroundColor: 'white' }}>
+            <div className="py-5 xl:px-80  md:px-10 sm:px-0 lg:px-10 h-[92vh]" style={{ backgroundColor: 'white' }}>
                 <div className=' h-[]  rounded-xl text-center ' style={{ border: "2px solid #4472c4", marginTop: '200px' }}>
                     <div className='bg-[#f2f2f2] row rounded-xl mx-auto py-5 flex justify-between' style={{ border: "2px solid #4472c4" }}>
                         <div className='  w-11/12 lg:pl-10 sm:pl-4 pl-2'>

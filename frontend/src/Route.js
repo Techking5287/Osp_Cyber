@@ -37,7 +37,7 @@ const ARoute = () => {
                     <Route path="/timer" element={<Timer />} />
                     <Route path="/risk" element={<Risk />} />
                 </Routes>
-                <Footer />
+                {/* <Footer /> */}
             </> : <>
                 <Routes >
                     <Route path="/" element={<Login />} />
@@ -45,7 +45,7 @@ const ARoute = () => {
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
                 </Routes>
-                <Footer />
+                {/* <Footer /> */}
             </>}
 
 

@@ -24,16 +24,21 @@ const Down = () => {
     }
 
     const ConfirmPassword = async () => {
-        if (pAss === "Lanzarote23") {
-            message.success("Success")
-            // document.getElementById("down").click();
-            setPassflag(true);
+        if (pAssflag === true) {
+            setVideoflag(false)
         }
-        else if (pAss !== "Lanzarote23") {
-            message.config({
-                top: "60px"
-            })
-            message.warning("Password is not correct!")
+        else {
+            if (pAss === "Lanzarote23") {
+                message.success("Success")
+                // document.getElementById("down").click();
+                setPassflag(true);
+            }
+            else if (pAss !== "Lanzarote23") {
+                message.config({
+                    top: "60px"
+                })
+                message.warning("Password is not correct!")
+            }
         }
     }
 
